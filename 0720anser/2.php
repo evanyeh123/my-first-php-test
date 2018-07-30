@@ -6,7 +6,7 @@
 
 <?php
 
-$servername = "localhost";
+$servername = "127.0.0.1";
 $username = "abc376267";
 $password = "abc123";
 $dbname = "school";
