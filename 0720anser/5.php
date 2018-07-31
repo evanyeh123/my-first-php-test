@@ -18,17 +18,17 @@ function getStudentData() {
     global $conn;
     try {
         $sql = 
-       "select student.name as student_name , course.name as course_name\n".
+       "select student.name as student_name , course.name as course_name , SCORE as B\n".
        "from score\n".
        " INNER JOIN course\n" .
        "  on score.course_id = course.id\n".
        " LEFT join student\n".
        "  on score.student_id = student.id\n".
-       " where course.name=\"英文\"";
+       " where student_name=B";
         $stmt = $conn->prepare($sql);
         $stmt->execute();
               $record = $stmt->fetchAll();
-            //   print_r($sql);
+              print_r($sql);
             //   print_r("<br />");
               
               return $record;       
@@ -38,17 +38,20 @@ function getStudentData() {
     }
 };
 $x=getStudentData();
-
- printf('<table border="1">');
-  printf("<tr>");
-  printf("<th>學生姓名</th>");
-   printf("<th>課程</th>");
 foreach($x as $value){ 
-    printf("<tr>");
-    printf("<td>" . $value['student_name'] ."</td>");
-    printf("<td>" . $value['course_name']  . "</td>");
     
+    printf("<tr>");
+    if($value['course_name']=='數學' ){
+        if($value['score_score']=='null'){
+            echo($value['student_name']);
+        };
+    };
+    printf("<td>" . $value['student_name'] ."</td>");
+ 
+
 };
     printf("</tr>"); 
     printf("</table>");
+    // foreach($x as $value){
+    //     if($value['course_id']
 ?>
