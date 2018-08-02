@@ -41,7 +41,7 @@ foreach( $cn  as $value){
     printf("<td>" . $value['student_id'] .   "</td>"); 
     printf("<td>" . $value['student_name'] .   "</td>");
     printf("<td>" . $value['course_name'] .  "</td>");
- }
+ };
     printf('<table border="1">');
     printf("<tr>");
     printf("<th>學生編號</th>");
@@ -52,7 +52,7 @@ foreach( $cn  as $value){
     printf("<td>" . $value['student_id'] .   "</td>"); 
     printf("<td>" . $value['student_name'] .   "</td>");
     printf("<td>" . $value['course_name'] .  "</td>"); 
- }
+ };
     printf('<table border="1">');
     printf("<tr>");
     printf("<th>學生編號</th>");
@@ -63,5 +63,5 @@ foreach( $cn  as $value){
     printf("<td>" . $value['student_id'] .   "</td>"); 
     printf("<td>" . $value['student_name'] .   "</td>");
     printf("<td>" . $value['course_name'] .  "</td>");
- }
+ };
 ?>

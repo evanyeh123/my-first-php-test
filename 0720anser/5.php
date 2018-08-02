@@ -32,16 +32,16 @@ function getStudentData() {
         echo "Error: " . $e->getMessage();
     }
 };
-$y=getStudentData();
-   printf('<table border="1">');
-   printf("<tr>");
-   printf("<th>未上張老師課的學生</th>");
+ $y=getStudentData();
+    printf('<table border="1">');
+    printf("<tr>");
+    printf("<th>未上張老師課的學生</th>");
 foreach($y as $value){ 
-  printf("<tr>");
+    printf("<tr>");
    if($value['course_id']==null) {
-     printf("<td>" . $value['student_name'] ."</td>");
+    printf("<td>" . $value['student_name'] ."</td>");
     };
   };
-     printf("</tr>"); 
-     printf("</table>");
+    printf("</tr>"); 
+    printf("</table>");
 ?>

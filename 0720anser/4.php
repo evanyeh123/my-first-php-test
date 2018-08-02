@@ -30,24 +30,21 @@ function getStudentData() {
               $record = $stmt->fetchAll();
             //   print_r($sql);
             //   print_r("<br />");
-              
               return $record;       
     }
      catch(PDOException $e) {
         echo "Error: " . $e->getMessage();
     }
 };
-$x=getStudentData();
-
- printf('<table border="1">');
-  printf("<tr>");
-  printf("<th>學生姓名</th>");
-   printf("<th>課程</th>");
+  $x=getStudentData();
+    printf('<table border="1">');
+    printf("<tr>");
+    printf("<th>學生姓名</th>");
+    printf("<th>課程</th>");
 foreach($x as $value){ 
     printf("<tr>");
     printf("<td>" . $value['student_name'] ."</td>");
     printf("<td>" . $value['course_name']  . "</td>");
-    
 };
     printf("</tr>"); 
     printf("</table>");

@@ -24,26 +24,25 @@ function getData() {
 $x=getData();
 $boy=0;
 $gir=0;
-printf('<table border="1">');
-printf("<tr>");
-printf("<th>學生姓名</th>");
-printf("<th>性別</th>");
+   printf('<table border="1">');
+   printf("<tr>");
+   printf("<th>學生姓名</th>");
+   printf("<th>性別</th>");
 foreach($x as $value){
-printf("<tr>");
-printf("<td>" . $value['name'] .   "</td>");
-printf("<td>" . $value['sex'] .   "</td>");
-printf("</tr>");
-
-if($value['sex']=="男"){
-    $boy=$boy+1;
+   printf("<tr>");
+   printf("<td>" . $value['name'] .   "</td>");
+   printf("<td>" . $value['sex'] .   "</td>");
+   printf("</tr>");
+  if($value['sex']=="男"){
+     $boy=$boy+1;
+  };
+  if($value['sex']=="女")
+     $gir=$gir+1;
 };
- if($value['sex']=="女")
-$gir=$gir+1;
-};
-printf("</tr>"); 
-printf("</table>");
-echo "男生人數:";
-print $boy;
-echo "女生人數:";
-print $gir;
+  printf("</tr>"); 
+  printf("</table>");
+  echo "男生人數:";
+  print $boy;
+  echo "女生人數:";
+  print $gir;
 ?>

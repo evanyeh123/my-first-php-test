@@ -12,9 +12,6 @@ $password = "abc123";
 $dbname = "school";
 $conn = new PDO("mysql:host=$servername;dbname=$dbname;charset=UTF8", $username, $password);
 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-
-
 function getData() {
     global $conn;
     try {
@@ -37,24 +34,20 @@ function getData() {
         
     }
 }
-
 $x = getData(); 
-
 printf('<table border="1">');
     printf("<tr>");
     printf("<th>學生編號</th>");
     printf("<th>平均成績</th>");
     printf("<th>總成績</th>");
-
 foreach($x as $value){
         printf("<tr>");
         printf("<td>" . $value['student_id'] .   "</td>");
         printf("<td>" . $value['avg_score'] .  "</td>");
         printf("<td>" . $value['sum_score']  . "</td>");
         printf("</tr>");
-    }
-
-    printf("</table>");
+    };
+        printf("</table>");
 
 ?>
 

@@ -46,3 +46,4 @@ foreach($x as $value){
     }
 }    
     printf("</table>");
+?>

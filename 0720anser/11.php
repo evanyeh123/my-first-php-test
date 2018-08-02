@@ -26,12 +26,9 @@ function getData() {
          return $record;
     }    catch(PDOException $e) {
         echo "Error: " . $e->getMessage();  
-    }
+         }
 }
 $x=getData();
-// $cn=getData(1);
-// $mt=getData(2);
-// $en=getData(3);
 $c=0;
 $m=0;
 $e=0;
@@ -42,25 +39,24 @@ $z=0;
     printf("<th>學生姓名</th>");
     printf("<th>課程</th>");
 foreach( $x  as $value){
-if (  $value['course_name'] =="國文") {
+  if (  $value['course_name'] =="國文") {
     $c=$c+1;
-} 
-elseif ($value['course_name'] =="數學") {
-    $m=$m+1; 
-};
- 
+    } 
+    elseif ($value['course_name'] =="數學") {
+      $m=$m+1; 
+         };
 if($value['course_name'] =="英文")
 {$z=$z+1;
-}
+   }
     printf("<tr>");
     printf("<td>" . $value['student_id'] .   "</td>"); 
     printf("<td>" . $value['student_name'] .   "</td>");
     printf("<td>" . $value['course_name'] .  "</td>");
- }
-print"國文上課人數";
-print $c ;
-print"數學上人數";
-print $m;
-print"英文上課人數";
-print $z;
+}
+    print"國文上課人數";
+    print $c ;
+    print"數學上人數";
+    print $m;
+    print"英文上課人數";
+    print $z;
 ?>

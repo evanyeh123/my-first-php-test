@@ -12,9 +12,6 @@ $password = "abc123";
 $dbname = "school";
 $conn = new PDO("mysql:host=$servername;dbname=$dbname;charset=UTF8", $username, $password);
 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-
-
 function getData() {
  global $conn;
   try {
@@ -45,8 +42,8 @@ function getData() {
             $arr2[$value['student_id']] = 0;
             $arr3[$value['student_id']] = array();
         }
-        $arr[$value['student_id']]=$arr[$value['student_id']]+$value['score'];
-        $arr2[$value['student_id']]=$arr2[$value['student_id']]+1;
+            $arr[$value['student_id']]=$arr[$value['student_id']]+$value['score'];
+            $arr2[$value['student_id']]=$arr2[$value['student_id']]+1;
         array_push($arr3[$value['student_id']], $value['course_name']);
 //        printf($value['arr']);
         // $arr2[$student_id]=$arr2[$stuent_id]+1;
@@ -54,36 +51,17 @@ function getData() {
 // var_dump($x);
 // var_dump($arr);
 
-print_r("<br/>");
+    print_r("<br/>");
 foreach($arr as $key => $value) {
     print_r($key . " || " . $value . "<br/>");
 }
-print_r("<br/>");
+    print_r("<br/>");
 foreach($arr2 as $key => $value) {
     print_r($key . " || " . $value . "<br/>");
 }
 
-print_r("<br/>");
+    print_r("<br/>");
 foreach($arr3 as $key => $value) {
     print_r($key . " || " . var_dump($value) . "<br/>");
-}
-
-
-// printf('<table border="1">');
-//     printf("<tr>");
-//     printf("<th>學生編號</th>");
-//     printf("<th>學生姓名</th>");
-//     printf("<th>課程</th>");
-//     printf("<th>總成績</th>");
-
-// foreach($x as $value){
-       
-//     printf("<tr>");
-//         printf("<td>" . $value['student_id'] .   "</td>");
-//         printf("<td>" . $value['student_name'] .   "</td>");
-//         printf("<td>" . $value['course_id']  . "</td>");
-//         // printf("<td>" . $value['sum_score']  . "</td>");
-//         printf("</tr>");
-//     };
-//     printf("</table>");
+};
 ?>

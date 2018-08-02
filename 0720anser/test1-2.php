@@ -5,16 +5,13 @@
 <title>title</title>
 </head>
 <body>
-
 <?php
-
 $servername = "localhost";
 $username = "abc376267";
 $password = "abc123";
 $dbname = "school";
 $conn = new PDO("mysql:host=$servername;dbname=$dbname;charset=UTF8", $username, $password);
 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
 function showTable($record) {
     printf('<table border="1">');
     printf("<tr>");
@@ -23,10 +20,8 @@ function showTable($record) {
     printf("<th>國文成績</th>");
     printf("<th>數學成績</th>");
     printf("</tr>");
-
     foreach($record as $value) {
         $student = getStudentData($value['student_id']);
-
         printf("<tr>");
         printf("<td>" . $value['student_id']  . "</td>");
         printf("<td>" . $student['name'] . "</td>");
@@ -34,13 +29,10 @@ function showTable($record) {
         printf("<td>" . $value['score_MT']  . "</td>");
         printf("</tr>");
     }
-
     printf("</table>");
 }
-
 function getStudentData($student_id) {
     global $conn;
-
     try {
         $sql = "select *" .
                "  from student" .
@@ -51,15 +43,11 @@ function getStudentData($student_id) {
     } catch(PDOException $e) {
         echo "Error: " . $e->getMessage();
     }
-    
     $arr = [
         "name" => $record['name'],
-   
     ];
     return $arr;
 }
-
-
 try {
     $sql = "select A.student_id as student_id, A.score as score_ch, B.score as score_MT" .
            "  from (select * from score where course_id = 1) as A" .
@@ -68,14 +56,11 @@ try {
     $stmt = $conn->prepare($sql);
     $stmt->execute();
     $record = $stmt->fetchAll();
-
     showTable($record);
-
 }
 catch(PDOException $e) {
     echo "Error: " . $e->getMessage();
 }
 ?>
-
 </body>
 </html>

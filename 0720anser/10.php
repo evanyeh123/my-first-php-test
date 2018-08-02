@@ -21,24 +21,24 @@ function getData() {
         echo "Error: " . $e->getMessage();  
     }
 }
-$x=getData();
+  $x=getData();
 
-printf('<table border="1">');
-printf("<tr>");
-printf("<th>學生姓名</th>");
-printf("<th>生日</th>");
+    printf('<table border="1">');
+    printf("<tr>");
+    printf("<th>學生姓名</th>");
+    printf("<th>生日</th>");
 
-if(strpos('abc','a') !== false){
-    echo '包含';
-}else{
-    echo '不包含';
-}
+  if(strpos('abc','a') !== false){
+     echo '包含';
+}   else{
+     echo '不包含';
+      }
 foreach($x as $value){
     if(strpos($value['birth'],'1990') !== false){
-printf("<tr>");
-printf("<td>" . $value['name'] .   "</td>");
-printf("<td>" . $value['birth'] .   "</td>");
-printf("</tr>");
+    printf("<tr>");
+    printf("<td>" . $value['name'] .   "</td>");
+    printf("<td>" . $value['birth'] .   "</td>");
+    printf("</tr>");
     };
 }
 ?>

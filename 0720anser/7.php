@@ -3,13 +3,6 @@
 </head>
 <body>
 <?php
-
-
-
-
-
-
-
 $servername = "127.0.0.1";
 $username = "abc376267";
 $password = "abc123";
@@ -50,9 +43,9 @@ foreach( $cn  as $value){
     $i=$i+1;
     printf("<tr>");
     printf("<td>" . $value['student_id'] .   "</td>"); 
-        printf("<td>" . $value['student_name'] .   "</td>");
-        printf("<td>" . $value['course_name'] .  "</td>");
-        printf("<td>" . $value['score'] . "</td> ");
+    printf("<td>" . $value['student_name'] .   "</td>");
+    printf("<td>" . $value['course_name'] .  "</td>");
+    printf("<td>" . $value['score'] . "</td> ");
 
   if($i==3){
     break;    
