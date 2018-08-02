@@ -64,8 +64,8 @@ function getStudentData($student_id) {
 try {
     $sql = "select A.student_id as student_id, A.score as score_ch, B.score as score_en" .
            "  from (select * from score where course_id = 1) as A" .
-           "  join (select * from score where course_id = 2) as B" .
-           "    on A.student_id = B.student_id";
+           "  join (select * from score where course_id = 2) as B on A.student_id = B.student_id"  
+           ;
     $stmt = $conn->prepare($sql);
     $stmt->execute();
     $record = $stmt->fetchAll();

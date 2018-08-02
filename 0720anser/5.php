@@ -17,41 +17,31 @@ $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 function getStudentData() {
     global $conn;
     try {
-        $sql = 
-       "select student.name as student_name , course.name as course_name , SCORE as B\n".
-       "from score\n".
-       " INNER JOIN course\n" .
-       "  on score.course_id = course.id\n".
-       " LEFT join student\n".
-       "  on score.student_id = student.id\n".
-       " where student_name=B";
+        $sql = "select*, B.name as student_name  , SCORE as 成績, A.course_id, A.SCORE\n"
+    . " from student as B\n"
+    . "LEFT join\n"
+    . " (select* from score WHERE course_id='2') as A\n"
+    . "  on B.id = A.student_id";
         $stmt = $conn->prepare($sql);
         $stmt->execute();
               $record = $stmt->fetchAll();
               print_r($sql);
-            //   print_r("<br />");
-              
               return $record;       
-    }
+  }
      catch(PDOException $e) {
         echo "Error: " . $e->getMessage();
     }
 };
-$x=getStudentData();
-foreach($x as $value){ 
-    
-    printf("<tr>");
-    if($value['course_name']=='數學' ){
-        if($value['score_score']=='null'){
-            echo($value['student_name']);
-        };
+$y=getStudentData();
+   printf('<table border="1">');
+   printf("<tr>");
+   printf("<th>未上張老師課的學生</th>");
+foreach($y as $value){ 
+  printf("<tr>");
+   if($value['course_id']==null) {
+     printf("<td>" . $value['student_name'] ."</td>");
     };
-    printf("<td>" . $value['student_name'] ."</td>");
- 
-
-};
-    printf("</tr>"); 
-    printf("</table>");
-    // foreach($x as $value){
-    //     if($value['course_id']
+  };
+     printf("</tr>"); 
+     printf("</table>");
 ?>
