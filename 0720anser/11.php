@@ -45,8 +45,8 @@ foreach( $x  as $value){
     elseif ($value['course_name'] =="數學") {
       $m=$m+1; 
          };
-if($value['course_name'] =="英文")
-{$z=$z+1;
+if($value['course_name'] =="英文"){
+      $z=$z+1;
    }
     printf("<tr>");
     printf("<td>" . $value['student_id'] .   "</td>"); 

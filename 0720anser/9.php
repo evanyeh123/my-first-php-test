@@ -12,7 +12,8 @@ $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 function getData() {
     global $conn;
     try {   
-        $sql = "select* from student";
+        $sql = "select* from student" .
+        " ORDER BY sex";
         $stmt = $conn->prepare($sql);
         $stmt->execute();
         $record = $stmt->fetchAll();
