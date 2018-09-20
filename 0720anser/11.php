@@ -31,7 +31,6 @@ function getData() {
 $x=getData();
 $c=0;
 $m=0;
-$e=0;
 $z=0;
     printf('<table border="1">');
     printf("<tr>");

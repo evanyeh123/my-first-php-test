@@ -21,7 +21,7 @@ catch(PDOException $e)
     
         // set the resulting array to associative
         $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-        
+    
 
         printf('<table border="1">');
         printf("<tr>");
@@ -48,6 +48,5 @@ catch(PDOException $e)
     }
     $conn = null;
     echo "</table>";
-
-    
+ 
 ?>
